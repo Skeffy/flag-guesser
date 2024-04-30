@@ -18,12 +18,13 @@ export default {
 
 <style>
     #page-header {
-        width: 400px;
-        height: 50px;
+        width: 500px;
+        height: 75px;
         display: flex;
         border-bottom-style: solid;
         border-bottom-width: 3px;
         justify-content: center;
+        margin-bottom: 50px;
     }
 
     #page-header>a {

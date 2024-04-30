@@ -1,32 +1,15 @@
 <template>
-
+    <img :src="this.$store.state.flag.flagImage" alt="">
 </template>
 
 <script>
-import flagService from "../services/FlagService.js";
-
 export default {
-    data() {
-        return {
-            flag: {
-                countryId: "",
-                name: "",
-                code: "",
-                capital: "",
-                continent: "",
-                flagImage: ""
-            }
-        }
-    },
-
-    created() {
-        flagService.get().then( (response) => {
-            this.flag = response.data;
-        });
-    }
+    
 }
 </script>
 
 <style>
-
+img {
+    width: 500px;
+}
 </style>

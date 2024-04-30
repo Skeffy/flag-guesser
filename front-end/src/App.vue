@@ -1,22 +1,18 @@
 <template>
   <div id="flag-guesser-app">
-    <pageHeader />
-    <gameContainer />
+    <router-view />
   </div>
 </template>
 
-<script>
-import pageHeader from "./components/PageHeader.vue";
-import gameContainer from "./components/GameContainer.vue";
-
+<script >
 export default {
-  components: {
-    pageHeader,
-    gameContainer
-  }
+  
 }
 </script>
 
 <style>
-
+#flag-guesser-app {
+  display: grid;
+  justify-content: center;
+}
 </style>

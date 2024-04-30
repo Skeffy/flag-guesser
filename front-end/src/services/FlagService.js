@@ -9,4 +9,8 @@ export default {
     get() {
         return http.get("/flag");
     },
+
+    getPractice() {
+        return http.get("/practice");
+    }
 }
