@@ -28,7 +28,7 @@ public class FlagController {
     }
 
     @GetMapping(
-            path = {"/flag"}
+            path = {"/daily"}
     )
     public Flag get() {
         Flag flag = this.flagDao.getFlag(this.dailyId.getId());
