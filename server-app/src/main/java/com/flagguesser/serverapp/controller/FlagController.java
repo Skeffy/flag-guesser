@@ -3,6 +3,7 @@ package com.flagguesser.serverapp.controller;
 import com.flagguesser.serverapp.DailyId;
 import com.flagguesser.serverapp.dao.FlagDao;
 import com.flagguesser.serverapp.model.Flag;
+
 import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -27,10 +30,8 @@ public class FlagController {
         ScheduledFuture<?> result = this.executor.scheduleAtFixedRate(this.dailyId, 0L, 1L, TimeUnit.DAYS);
     }
 
-    @GetMapping(
-            path = {"/daily"}
-    )
-    public Flag get() {
+    @GetMapping(path = {"/daily"})
+    public Flag daily() {
         Flag flag = this.flagDao.getFlag(this.dailyId.getId());
         if (flag == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flag not found");
@@ -39,9 +40,7 @@ public class FlagController {
         }
     }
 
-    @GetMapping(
-            path = {"/practice"}
-    )
+    @GetMapping(path = {"/practice"})
     public Flag practice() {
         Random random = new Random();
         int dbLength = random.nextInt(this.dailyId.getDbLength() + 1);
@@ -50,6 +49,16 @@ public class FlagController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flag not found");
         } else {
             return flag;
+        }
+    }
+
+    @GetMapping(path = {"/list"})
+    public List<String> names() {
+        List<String> names = flagDao.getList();
+        if (names == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Could not get list of possible flags");
+        } else {
+            return names;
         }
     }
 }
