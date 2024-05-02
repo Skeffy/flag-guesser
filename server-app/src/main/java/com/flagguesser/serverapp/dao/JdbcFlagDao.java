@@ -8,12 +8,15 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcFlagDao implements FlagDao {
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcFlagDao(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
     public Flag getFlag(int id) {
@@ -21,7 +24,7 @@ public class JdbcFlagDao implements FlagDao {
         String sql = "SELECT * FROM country WHERE country_id = ?;";
 
         try {
-            SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql, new Object[]{id});
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, new Object[]{id});
             if (results.next()) {
                 flag = this.mapRowToFlag(results);
             }
@@ -36,13 +39,27 @@ public class JdbcFlagDao implements FlagDao {
         String sql = "SELECT country_id FROM country;";
 
         try {
-            SqlRowSet results = this.jdbcTemplate.queryForRowSet(sql);
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             results.last();
-            int dbLength = results.getRow();
-            return dbLength;
+            return results.getRow();
         } catch (CannotGetJdbcConnectionException var4) {
             throw new DaoException("Unable to connect to database", var4);
         }
+    }
+
+    public List<String> getList() {
+        List<String> namesList = new ArrayList<>();
+        String sql = "SELECT name FROM country;";
+
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+            while (results.next()) {
+                namesList.add(results.getString("name"));
+            }
+        } catch (CannotGetJdbcConnectionException var4) {
+            throw new DaoException("Unable to connect to database", var4);
+        }
+        return namesList;
     }
 
     private Flag mapRowToFlag(SqlRowSet results) {
