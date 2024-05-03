@@ -1,16 +1,20 @@
 import axios from "axios";
 
 const http = axios.create({
-    baseURL: "http://3.18.104.145:8080"
+    baseURL: "https://flag-guesser-server.onrender.com"
 });
 
 export default {
 
-    get() {
-        return http.get("/flag");
+    getDaily() {
+        return http.get("/daily");
     },
 
     getPractice() {
         return http.get("/practice");
+    },
+
+    getList() {
+        return http.get("/list");
     }
 }
