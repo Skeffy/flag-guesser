@@ -5,7 +5,12 @@
     <h1 class="offcanvas-title">How to play</h1>
   </div>
   <div class="offcanvas-body">
-    <p>Guess the flag in 4 guesses or less. After each incorrect guess, you will be shown an additional hint to help you make your next guess.</p>
+    <p id="daily-rules" v-if="gameMode == `Daily`">In daily mode, there is only one flag per day. You will have 4 attempts to guess today's flag, and you will recieve a hint after each incorrect guess.
+        <br><br> 
+        The results of playing this game mode are what will be recorded to your "stats" page.</p>
+    <p id="practice-rules" v-if="gameMode == `Practice`">In practice mode, you can play as much as you like, and the same rules apply as daily mode. You will have 4 attempts to guess the flag, and you will recieve a hint after each incorrect guess.
+        <br><br>
+        The results of this game mode will not be recorded to your "stats" page.</p>
     <p>Good luck!</p>
   </div>
 </div>
@@ -19,6 +24,9 @@
 </template>
 
 <script>
+export default {
+    props: ["gameMode"]
+}
 
 </script>
 
