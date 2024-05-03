@@ -1,7 +1,1 @@
-.idea/*
-Dockerfile
-README.Docker.md
-.dockerignore
-compose.yaml
-target/*
-.mvn/*
+node_modules/*
