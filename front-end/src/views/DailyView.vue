@@ -17,7 +17,7 @@ export default {
     },
 
     created() {
-        FlagService.get().then( (response) => {
+        FlagService.getDaily().then( (response) => {
             this.$store.commit("SET_FLAG", response.data);
         });
     },
