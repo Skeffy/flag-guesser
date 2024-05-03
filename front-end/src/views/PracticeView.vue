@@ -1,5 +1,5 @@
 <template>
-    <div id="daily-view">
+    <div id="practice-view">
         <pageHeader />
         <gameContainer />
     </div>
@@ -21,7 +21,7 @@ export default {
             this.$store.commit("SET_FLAG", response.data);
         });
     },
-  }
+}
 </script>
   
 <style>
