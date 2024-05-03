@@ -19,7 +19,6 @@ export default {
         return {
             playerGuess: "",
             guessNumber: 1,
-            gameMode: "",
             gameOver: false,
         }
     },
