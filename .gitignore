@@ -1,0 +1,8 @@
+server-app/.idea/*
+server-app/Dockerfile
+server-app/README.Docker.md
+server-app/.dockerignore
+server-app/compose.yaml
+server-app/target/*
+server-app/.mvn/*
+front-end/node_modules/*
