@@ -1,7 +1,7 @@
 <template>
     <div id="page-header">
-        <h1>FLAG GUESSER</h1>
-        <helpOffcanvas />
+        <h1>{{ gameMode.toUpperCase() }}</h1>
+        <helpOffcanvas :gameMode="gameMode"/>
     </div>
 </template>
 
@@ -9,6 +9,8 @@
 import helpOffcanvas from "./HelpOffcanvas.vue";
 
 export default {
+    props: ["gameMode"],
+
     components: {
         helpOffcanvas
     }
@@ -36,5 +38,4 @@ export default {
         margin: 0px;
         align-content: center;
     }
-
 </style>
