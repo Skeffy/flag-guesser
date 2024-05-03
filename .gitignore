@@ -5,4 +5,5 @@ server-app/.dockerignore
 server-app/compose.yaml
 server-app/target/*
 server-app/.mvn/*
+server-app/src/main/resources/application.properties
 front-end/node_modules/*
