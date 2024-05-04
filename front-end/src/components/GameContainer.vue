@@ -61,4 +61,10 @@ img {
     width: 500px;
     height: 300px;
 }
+
+#country-guess {
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
 </style>
