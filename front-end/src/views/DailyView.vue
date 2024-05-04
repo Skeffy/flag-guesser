@@ -1,6 +1,6 @@
 <template>
     <div id="daily-view">
-        <pageHeader />
+        <pageHeader :gameMode="gameMode" />
         <gameContainer />
     </div>
 </template>
@@ -11,6 +11,12 @@ import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
 
 export default {
+    data() {
+        return {
+            gameMode: "Daily"
+        }
+    },
+
     components: {
         pageHeader,
         gameContainer
