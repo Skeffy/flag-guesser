@@ -21,7 +21,8 @@ export default {
   created() {
     FlagService.getList().then( (response) => {
       this.$store.commit("POPULATE_LIST", response.data);
-    })
+    });
+    this.$store.commit("SYNC_STATS");
   }
 }
 </script>
