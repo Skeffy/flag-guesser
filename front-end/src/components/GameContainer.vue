@@ -5,14 +5,16 @@
         <datalist id="country-names">
             <option v-for="name in this.$store.state.countryNames" :value="name">{{ name }}</option>
         </datalist>
-        <button @click="guess">Guess</button>
+        <button @click="guess" class="btn">Guess</button>
     </form>
     <HintBox :guessNumber="guessNumber"/>
+    <EndScreen />
 </template>
 
 <script>
 import FlagService from '@/services/FlagService';
 import HintBox from './HintBox.vue';
+import EndScreen from './EndScreen.vue';
 
 export default {
     data() {
@@ -20,26 +22,55 @@ export default {
             playerGuess: "",
             guessNumber: 1,
             gameOver: false,
+            hasWon: false,
         }
     },
 
     components: {
-        HintBox
+        HintBox,
+        EndScreen
     },
 
     methods: {
         guess() {
+            if(this.$store.state.stats.hasPlayed == false) {
+                this.$store.state.stats.hasPlayed = true;
+            }
             if (this.playerGuess.toLowerCase() === this.$store.state.flag.name.toLowerCase()) {
                 //CORRECT
                 this.gameOver = true;
+                this.hasWon = true;
             } else {
                 this.guessNumber++;
-                if (this.guessNumber == 5) {
+                if (this.guessNumber >= 5) {
                     //LOSE
-                    this.reset();
+                    this.gameOver = true;
                 }
             }
             this.playerGuess = "";
+            if (this.gameOver) {
+                this.updateStats();
+            }
+        },
+
+        updateStats() {
+            var stats = this.$store.state.stats;
+            stats.gamesPlayed++;
+            if (this.hasWon) {
+                stats.gamesWon++;
+                stats.currentStreak++;
+                if (stats.currentStreak > stats.maxStreak) {
+                    stats.maxStreak = stats.currentStreak;
+                }
+                for (var key in stats.guesses) {
+                    if (key == this.guessNumber) {
+                        stats.guesses[key]++;
+                    }
+                }
+            } else {
+                stats.guesses.fail++;
+            }
+            this.$store.commit("UPDATE_STATS", stats);
         },
 
         reset() {
@@ -64,7 +95,22 @@ img {
 
 #country-guess {
     padding-top: 30px;
-    display: flex;
+    display: grid;
     justify-content: center;
+}
+
+#country-guess>input {
+    width: 350px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+#country-guess>button {
+    display: flex;
+    width: 200px;
+    justify-self: center;
+    background-color: #d7263d;
+    border-radius: 20px;
+    color: #ebebeb;
 }
 </style>
