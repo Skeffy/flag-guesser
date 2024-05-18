@@ -36,6 +36,7 @@ public class FlagController {
         if (flag == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Flag not found");
         } else {
+            flag.setTimestamp(this.dailyId.getTimestamp());
             return flag;
         }
     }
