@@ -6,6 +6,7 @@ public class Flag {
     private String capital;
     private String continent;
     private String flagImage;
+    private long timestamp;
 
     public Flag() {
     }
@@ -16,6 +17,15 @@ public class Flag {
         this.capital = capital;
         this.continent = continent;
         this.flagImage = flagImage;
+    }
+
+    public Flag(String name, String code, String capital, String continent, String flagImage, long timestamp) {
+        this.name = name;
+        this.code = code;
+        this.capital = capital;
+        this.continent = continent;
+        this.flagImage = flagImage;
+        this.timestamp = timestamp;
     }
 
     public String getName() {
@@ -56,5 +66,13 @@ public class Flag {
 
     public void setFlagImage(String flagImage) {
         this.flagImage = flagImage;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
     }
 }
