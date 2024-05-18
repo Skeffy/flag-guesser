@@ -10,6 +10,7 @@ public class DailyId implements Runnable {
     private List<Integer> possibleFlagIds = new ArrayList();
     private int dailyId;
     private int dbLength;
+    private long timestamp;
 
     public DailyId(FlagDao flagDao) {
         this.flagDao = flagDao;
@@ -31,6 +32,7 @@ public class DailyId implements Runnable {
         }
 
         this.dailyId = (Integer)this.possibleFlagIds.removeFirst();
+        this.timestamp = System.currentTimeMillis() / 1000L;
     }
 
     private void resetFlagList() {
@@ -43,5 +45,9 @@ public class DailyId implements Runnable {
 
     public int getDbLength() {
         return this.dbLength;
+    }
+
+    public long getTimestamp() {
+        return timestamp;
     }
 }
