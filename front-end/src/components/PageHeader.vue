@@ -26,7 +26,7 @@ export default {
         border-bottom-style: solid;
         border-bottom-width: 3px;
         justify-content: center;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     #page-header>a {
