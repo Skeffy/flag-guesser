@@ -134,7 +134,7 @@ INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Norway
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Oman','OM','Muscat','Asia','https://upload.wikimedia.org/wikipedia/commons/d/dd/Flag_of_Oman.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Pakistan','PK','Islamabad','Asia','https://upload.wikimedia.org/wikipedia/commons/3/32/Flag_of_Pakistan.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Palau','PW','Melekeok','Oceania','https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Palau.svg');
-INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Palestinian Territory Occupied','PS','East Jerusalem','Asia','https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg');
+INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Palestine','PS','East Jerusalem','Asia','https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_Palestine.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Panama','PA','Panama City','North America','https://upload.wikimedia.org/wikipedia/commons/a/ab/Flag_of_Panama.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Papua New Guinea','PG','Port Moresby','Oceania','https://upload.wikimedia.org/wikipedia/commons/e/e3/Flag_of_Papua_New_Guinea.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Paraguay','PY','Asuncion','South America','https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg');
@@ -152,7 +152,7 @@ INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Saint 
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Saint Vincent and the Grenadines','VC','Kingstown','North America','https://upload.wikimedia.org/wikipedia/commons/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Samoa','WS','Apia','Oceania','https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Samoa.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('San Marino','SM','San Marino','Europe','https://upload.wikimedia.org/wikipedia/commons/b/b1/Flag_of_San_Marino.svg');
-INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Sao Tome and Principe','ST','Sao Tome','Africa','https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Sao_Tome_and_Principe.svg');
+INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Sao Tome and Principe','ST','Sao Tome','Africa','https://en.wikipedia.org/wiki/S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe#/media/File:Flag_of_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Saudi Arabia','SA','Riyadh','Asia','https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Senegal','SN','Dakar','Africa','https://upload.wikimedia.org/wikipedia/commons/f/fd/Flag_of_Senegal.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Serbia','RS','Belgrade','Europe','https://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg');
@@ -191,7 +191,7 @@ INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('United
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Uruguay','UY','Montevideo','South America','https://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Uzbekistan','UZ','Tashkent','Asia','https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Vanuatu','VU','Port Vila','Oceania','https://upload.wikimedia.org/wikipedia/commons/b/bc/Flag_of_Vanuatu.svg');
-INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Vatican City','VA','Vatican City','Europe','https://upload.wikimedia.org/wikipedia/commons/0/00/Flag_of_the_Vatican_City.svg');
+INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Vatican City','VA','Vatican City','Europe','https://en.wikipedia.org/wiki/Vatican_City#/media/File:Flag_of_the_Vatican_City_(2023%E2%80%93present).svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Venezuela','VE','Caracas','South America','https://upload.wikimedia.org/wikipedia/commons/0/06/Flag_of_Venezuela.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Vietnam','VN','Hanoi','Asia','https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Yemen','YE','Sanaa','Asia','https://upload.wikimedia.org/wikipedia/commons/8/89/Flag_of_Yemen.svg');
