@@ -1,6 +1,6 @@
 import { createStore as _createStore } from 'vuex';
 
-export function createStore() {
+export function createStore(currentStats) {
     return _createStore({
         state: {
             flag: {
@@ -8,10 +8,11 @@ export function createStore() {
                 code: "",
                 capital: "",
                 continent: "",
-                flagImage: ""
+                flagImage: "",
+                timestamp: 0,
             },
             countryNames: [],
-            stats: {
+            stats: currentStats || {
                 gamesPlayed: 0,
                 gamesWon: 0,
                 guesses: {
@@ -23,7 +24,8 @@ export function createStore() {
                 },
                 currentStreak: 0,
                 maxStreak: 0,
-                hasPlayed: false
+                hasPlayed: false,
+                timestamp: 0
             },
         },
 
@@ -44,6 +46,9 @@ export function createStore() {
             UPDATE_STATS(state, payload) {
                 state.stats = payload;
                 localStorage.setItem("stats", JSON.stringify(state.stats));
+            },
+            HAS_PLAYED(state) {
+                state.stats.hasPlayed = true;
             },
         }
     });
