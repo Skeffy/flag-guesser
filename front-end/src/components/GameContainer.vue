@@ -1,43 +1,41 @@
 <template>
-    <img :src="this.$store.state.flag.flagImage" alt="">
+    <div id="flag">
+        <img :src="this.$store.state.flag.flagImage" alt="">
+    </div>
     <form v-on:submit.prevent="onSubmit" id="country-guess">
-        <input type="text" list="country-names" id="country" v-model="playerGuess">
+        <input type="text" list="country-names" id="country" v-model="this.playerGuess" placeholder="Select One">
         <datalist id="country-names">
             <option v-for="name in this.$store.state.countryNames" :value="name">{{ name }}</option>
         </datalist>
         <button @click="guess" class="btn">Guess</button>
     </form>
     <HintBox :guessNumber="guessNumber"/>
-    <EndScreen />
 </template>
 
 <script>
-import FlagService from '@/services/FlagService';
 import HintBox from './HintBox.vue';
-import EndScreen from './EndScreen.vue';
+import FlagService from '../services/FlagService.js';
 
 export default {
-    data() {
-        return {
-            playerGuess: "",
-            guessNumber: 1,
-            gameOver: false,
-            hasWon: false,
-        }
-    },
-
     components: {
         HintBox,
-        EndScreen
+    },
+
+    props: ["gameMode"],
+
+    data() {
+        return {
+            gameOver: false,
+            hasWon: false,
+            guessNumber: 1,
+            playerGuess: "",
+        }
     },
 
     methods: {
         guess() {
-            if(this.$store.state.stats.hasPlayed == false) {
-                this.$store.state.stats.hasPlayed = true;
-            }
             if (this.playerGuess.toLowerCase() === this.$store.state.flag.name.toLowerCase()) {
-                //CORRECT
+                //WIN
                 this.gameOver = true;
                 this.hasWon = true;
             } else {
@@ -47,10 +45,15 @@ export default {
                     this.gameOver = true;
                 }
             }
-            this.playerGuess = "";
-            if (this.gameOver) {
-                this.updateStats();
+            if (this.gameOver == true && this.gameMode == "Practice") {
+                this.guessNumber = 1;
+                this.hasWon = false;
+                this.gameOver = false;
+                FlagService.getPractice().then( (response) => {
+                    this.$store.commit("SET_FLAG", response.data);
+                });
             }
+            this.playerGuess = "";
         },
 
         updateStats() {
@@ -70,47 +73,43 @@ export default {
             } else {
                 stats.guesses.fail++;
             }
+            stats.timestamp = Math.floor(Date.now() / 1000);
             this.$store.commit("UPDATE_STATS", stats);
         },
-
-        reset() {
-            this.guessNumber = 1;
-            this.playerGuess = "";
-            this.gameMode = this.$route.name;
-            if (this.gameMode == "practice") {
-                FlagService.getPractice().then( (response) => {
-                    this.$store.commit("SET_FLAG", response.data);
-                });
-            }
-        }
-    }
+    },
 }
 </script>
 
 <style>
+#flag {
+    display: flex;
+    justify-content: center;
+}
+
 img {
-    width: 500px;
-    height: 300px;
+    width: 400px;
+    height: 250px;
 }
 
 #country-guess {
-    padding-top: 30px;
+    padding-top: 40px;
     display: grid;
     justify-content: center;
 }
 
 #country-guess>input {
     width: 350px;
+    height: 40px;
     margin-bottom: 20px;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 #country-guess>button {
-    display: flex;
     width: 200px;
     justify-self: center;
     background-color: #d7263d;
-    border-radius: 20px;
+    border-radius: 15px;
     color: #ebebeb;
+    font-weight: bold;
 }
 </style>
