@@ -1,11 +1,11 @@
 import './assets/main.css'
 
-import { createApp } from 'vue'
+import { createApp } from './vue'
 import { createStore } from './store'
 
 import App from './App.vue'
 import router from './router'
-import axios from 'axios'
+import axios from './axios'
 
 axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
