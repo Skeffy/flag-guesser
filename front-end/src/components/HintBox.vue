@@ -24,7 +24,8 @@ export default {
 
 <style>
 #hint-box {
-    background-color: #455d79;
+    background-color: #b8b9cc;
+    color: #d7263d;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 
