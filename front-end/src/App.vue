@@ -12,6 +12,7 @@
   <div id="flag-guesser-app">
     <router-view />
   </div>
+  <footer></footer>
 </template>
 
 <script >
@@ -34,18 +35,19 @@ export default {
 }
 
 #heading {
-  height: 75px;
-  background-color: #2d2f4f;
+  height: 70px;
+  background-color: #f3f4f7;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   grid-template-areas: 
   "navigation title stats";
   align-items: center;
-  margin-bottom: 50px;
   border-bottom-style: solid;
   border-bottom-width: 3px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-weight: bold;
+  color:#d7263d;
 }
 
 #navigation {
@@ -54,8 +56,9 @@ export default {
 }
 
 #heading a {
-  color: #ebebeb;
+  color: #d7263d;
   text-decoration: none;
+  font-size: 15pt;
 }
 
 #title {
