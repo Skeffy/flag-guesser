@@ -1,7 +1,7 @@
 <template>
     <div id="practice-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer />
+        <gameContainer :gameMode="gameMode"/>
     </div>
 </template>
   
