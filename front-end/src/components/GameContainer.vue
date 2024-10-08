@@ -47,11 +47,13 @@ export default {
             }
             if (this.gameOver == true && this.gameMode == "Practice") {
                 this.guessNumber = 1;
-                this.hasWon = false;
                 this.gameOver = false;
                 FlagService.getPractice().then( (response) => {
                     this.$store.commit("SET_FLAG", response.data);
                 });
+                this.$emit('betweenFlags', true);
+                this.$emit('isCorrect', this.hasWon);
+                this.hasWon = false;
             }
             this.playerGuess = "";
         },
