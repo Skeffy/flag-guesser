@@ -1,7 +1,8 @@
 <template>
     <div id="practice-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer :gameMode="gameMode"/>
+        <gameContainer @betweenFlags="updateIsBetween" @isCorrect="updateIsCorrect" :gameMode="gameMode" v-if="!isBetween"/>
+        <intermission @nextFlag="updateIsBetween" :isCorrect="isCorrect" v-if="isBetween"/>
     </div>
 </template>
   
@@ -9,17 +10,21 @@
 import FlagService from "@/services/FlagService";
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
+import intermission from "../components/Intermission.vue";
   
 export default {
     data() {
         return {
-            gameMode: "Practice"
+            gameMode: "Practice",
+            isCorrect: false,
+            isBetween: false
         }
     },
 
     components: {
         pageHeader,
-        gameContainer
+        gameContainer,
+        intermission
     },
   
     created() {
@@ -27,6 +32,16 @@ export default {
             this.$store.commit("SET_FLAG", response.data);
         });
     },
+
+    methods: {
+        updateIsBetween(isBetween) {
+            this.isBetween = isBetween;
+        },
+
+        updateIsCorrect(isCorrect) {
+            this.isCorrect = isCorrect;
+        }
+    }
 }
 </script>
   
