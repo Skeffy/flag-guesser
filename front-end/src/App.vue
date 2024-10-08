@@ -12,7 +12,6 @@
   <div id="flag-guesser-app">
     <router-view />
   </div>
-  <footer></footer>
 </template>
 
 <script >
