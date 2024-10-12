@@ -71,4 +71,14 @@ export default {
   justify-content: right;
   padding-right: 20px;
 }
+
+.gamebtn {
+    width: 200px;
+    height: 40px;
+    justify-self: center;
+    background-color: #d7263d;
+    border-radius: 15px;
+    color: #ebebeb;
+    font-weight: bold;
+}
 </style>
