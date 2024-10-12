@@ -7,14 +7,13 @@
         <datalist id="country-names">
             <option v-for="name in this.$store.state.countryNames" :value="name">{{ name }}</option>
         </datalist>
-        <button @click="guess" class="btn">Guess</button>
+        <button @click="guess" class="gamebtn">Guess</button>
     </form>
     <HintBox :guessNumber="guessNumber"/>
 </template>
 
 <script>
 import HintBox from './HintBox.vue';
-import FlagService from '../services/FlagService.js';
 
 export default {
     components: {
@@ -48,9 +47,6 @@ export default {
             if (this.gameOver == true && this.gameMode == "Practice") {
                 this.guessNumber = 1;
                 this.gameOver = false;
-                FlagService.getPractice().then( (response) => {
-                    this.$store.commit("SET_FLAG", response.data);
-                });
                 this.$emit('betweenFlags', true);
                 this.$emit('isCorrect', this.hasWon);
                 this.hasWon = false;
@@ -104,14 +100,5 @@ img {
     height: 40px;
     margin-bottom: 20px;
     border-radius: 15px;
-}
-
-#country-guess>button {
-    width: 200px;
-    justify-self: center;
-    background-color: #d7263d;
-    border-radius: 15px;
-    color: #ebebeb;
-    font-weight: bold;
 }
 </style>
