@@ -27,6 +27,8 @@ export default {
         border-bottom-width: 3px;
         justify-content: center;
         margin-bottom: 40px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     #page-header>a {
