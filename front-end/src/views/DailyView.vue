@@ -2,7 +2,6 @@
     <div id="daily-view">
         <pageHeader :gameMode="gameMode" />
         <gameContainer :gameMode="gameMode"/>
-        <EndScreen v-if="this.$store.state.stats.hasPlayed"/>
     </div>
 </template>
 
@@ -10,7 +9,6 @@
 import FlagService from "@/services/FlagService";
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
-import EndScreen from '../components/EndScreen.vue';
 
 export default {
     data() {
@@ -22,7 +20,6 @@ export default {
     components: {
         pageHeader,
         gameContainer,
-        EndScreen
     },
 
     created() {
@@ -30,7 +27,7 @@ export default {
             this.$store.commit("SET_FLAG", response.data);
         });
 
-        if (this.$store.state.flag.timestamp < this.$store.state.stats.timestamp) {
+        if (this.$store.state.flag.timestamp <= this.$store.state.stats.timestamp) {
             this.$store.commit("HAS_PLAYED");
         }
     },
