@@ -2,7 +2,7 @@
     <div id="flag">
         <img :src="this.$store.state.flag.flagImage" alt="">
     </div>
-    <form v-on:submit.prevent="onSubmit" id="country-guess">
+    <form v-on:submit.prevent="onSubmit" id="country-guess" v-if="!this.$store.state.stats.hasPlayed || this.gameMode != 'Daily'">
         <input type="text" list="country-names" id="country" v-model="this.playerGuess" placeholder="Select One">
         <datalist id="country-names">
             <option v-for="name in this.$store.state.countryNames" :value="name">{{ name }}</option>
@@ -31,6 +31,12 @@ export default {
         }
     },
 
+    created() {
+        if (this.gameMode === "Daily") {
+            this.guessNumber = this.$store.state.stats.currentGuessNumber;
+        }
+    },
+
     methods: {
         guess() {
             if (this.playerGuess.toLowerCase() === this.$store.state.flag.name.toLowerCase()) {
@@ -44,12 +50,17 @@ export default {
                     this.gameOver = true;
                 }
             }
+            if (this.gameMode == "Daily"){
+                this.$store.commit("STORE_CURRENT_PROGRESS", this.guessNumber);
+            }
             if (this.gameOver == true && this.gameMode == "Practice") {
                 this.guessNumber = 1;
                 this.gameOver = false;
                 this.$emit('betweenFlags', true);
                 this.$emit('isCorrect', this.hasWon);
                 this.hasWon = false;
+            } else if (this.gameOver == true && this.gameMode === "Daily") {
+                this.updateStats();
             }
             this.playerGuess = "";
         },
