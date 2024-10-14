@@ -19,10 +19,17 @@ import FlagService from './services/FlagService';
 
 export default {
   created() {
+    this.$store.commit("SYNC_STATS");
     FlagService.getList().then( (response) => {
       this.$store.commit("POPULATE_LIST", response.data);
     });
-    this.$store.commit("SYNC_STATS");
+    FlagService.getDaily().then( (response) => {
+      this.$store.commit("SET_FLAG", response.data);
+      
+      if (this.$store.state.flag.timestamp > this.$store.state.stats.timestamp) {
+        this.$store.commit("NEW_GAME");
+      }
+    });
   }
 }
 </script>
