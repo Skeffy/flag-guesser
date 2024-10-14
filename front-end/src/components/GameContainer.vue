@@ -82,6 +82,8 @@ export default {
             } else {
                 stats.guesses.fail++;
             }
+            stats.currentGuessNumber = 1;
+            stats.hasPlayed = true;
             stats.timestamp = Math.floor(Date.now() / 1000);
             this.$store.commit("UPDATE_STATS", stats);
         },
