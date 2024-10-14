@@ -48,8 +48,9 @@ export function createStore(currentStats) {
                 state.stats = payload;
                 localStorage.setItem("stats", JSON.stringify(state.stats));
             },
-            HAS_PLAYED(state) {
-                state.stats.hasPlayed = true;
+            NEW_GAME(state) {
+                state.stats.hasPlayed = false;
+                state.stats.currentGuessNumber = 1;
             },
             STORE_CURRENT_PROGRESS(state, payload) {
                 state.stats.currentGuessNumber = payload;
