@@ -2,6 +2,10 @@
     <div id="daily-view">
         <pageHeader :gameMode="gameMode" />
         <gameContainer :gameMode="gameMode"/>
+        <div v-if="this.$store.state.stats.hasPlayed" id="completed">
+            <h2>You've already completed todays challenge.</h2>
+            <h2>Today's flag was {{ this.$store.state.flag.name }}</h2>
+        </div>
     </div>
 </template>
 
@@ -24,5 +28,11 @@ export default {
 </script>
 
 <style>
-
+#completed {
+    display: grid;
+    margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    justify-items: center;
+}
 </style>
