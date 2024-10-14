@@ -23,7 +23,7 @@ INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Bhutan
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Bolivia','BO','Sucre','South America','https://upload.wikimedia.org/wikipedia/commons/4/48/Flag_of_Bolivia.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Bosnia and Herzegovina','BA','Sarajevo','Europe','https://upload.wikimedia.org/wikipedia/commons/b/bf/Flag_of_Bosnia_and_Herzegovina.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Botswana','BW','Gaborone','Africa','https://upload.wikimedia.org/wikipedia/commons/f/fa/Flag_of_Botswana.svg');
-INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Brazil','BR','Brasilia','Americas','https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg');
+INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Brazil','BR','Brasilia','South America','https://upload.wikimedia.org/wikipedia/en/0/05/Flag_of_Brazil.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Brunei','BN','Bandar Seri Begawan','Asia','https://upload.wikimedia.org/wikipedia/commons/9/9c/Flag_of_Brunei.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Bulgaria','BG','Sofia','Europe','https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Bulgaria.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Burkina Faso','BF','Ouagadougou','Africa','https://upload.wikimedia.org/wikipedia/commons/3/31/Flag_of_Burkina_Faso.svg');
