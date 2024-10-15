@@ -3,7 +3,15 @@ import { createStore as _createStore } from 'vuex';
 export function createStore(currentStats) {
     return _createStore({
         state: {
-            flag: {
+            daily: {
+                name: "",
+                code: "",
+                capital: "",
+                continent: "",
+                flagImage: "",
+                timestamp: 0,
+            },
+            practice: {
                 name: "",
                 code: "",
                 capital: "",
@@ -31,8 +39,11 @@ export function createStore(currentStats) {
         },
 
         mutations: {
-            SET_FLAG(state, payload) {
-                state.flag = payload;
+            SET_DAILY(state, payload) {
+                state.daily = payload;
+            },
+            SET_PRACTICE(state, payload) {
+                state.practice = payload;
             },
             POPULATE_LIST(state, payload) {
                 state.countryNames = payload;
