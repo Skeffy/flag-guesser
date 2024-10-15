@@ -24,9 +24,9 @@ export default {
       this.$store.commit("POPULATE_LIST", response.data);
     });
     FlagService.getDaily().then( (response) => {
-      this.$store.commit("SET_FLAG", response.data);
+      this.$store.commit("SET_DAILY", response.data);
       
-      if (this.$store.state.flag.timestamp > this.$store.state.stats.timestamp) {
+      if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
         this.$store.commit("NEW_GAME");
       }
     });
