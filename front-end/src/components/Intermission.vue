@@ -1,13 +1,13 @@
 <template>
     <div id="intermission">
         <div id="flag">
-            <img :src="this.$store.state.flag.flagImage" alt="">
+            <img :src="this.$store.state.practice.flagImage" alt="">
         </div>
         <div id="correct" v-if="isCorrect">
-            <h2>{{ this.$store.state.flag.name }} is correct!</h2>
+            <h2>{{ this.$store.state.practice.name }} is correct!</h2>
         </div>
         <div id="incorrect" v-if="!isCorrect">
-            <h2>Sorry! The correct answer was {{ this.$store.state.flag.name }}</h2>
+            <h2>Sorry! The correct answer was {{ this.$store.state.practice.name }}</h2>
         </div>
         <button @click="nextFlag" class="gamebtn">Next Flag</button>
     </div>
@@ -22,7 +22,7 @@ export default {
     methods: {
         nextFlag() {
             FlagService.getPractice().then( (response) => {
-                    this.$store.commit("SET_FLAG", response.data);
+                    this.$store.commit("SET_PRACTICE", response.data);
                 });
             this.$emit('nextFlag', false);
         }
