@@ -1,10 +1,10 @@
 <template>
     <div id="daily-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer :gameMode="gameMode"/>
+        <gameContainer :gameMode="gameMode" :flag="this.$store.state.daily"/>
         <div v-if="this.$store.state.stats.hasPlayed" id="completed">
             <h2>You've already completed todays challenge.</h2>
-            <h2>Today's flag was {{ this.$store.state.flag.name }}</h2>
+            <h2>Today's flag was {{ this.$store.state.daily.name }}</h2>
         </div>
     </div>
 </template>
