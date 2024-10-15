@@ -3,22 +3,22 @@
         <h2>HINTS:</h2>
         <span id="continent-span" v-if="guessNumber >= 2">
             <p id="continent">Continent:</p>
-            <p id="continent-name">{{ this.$store.state.flag.continent }}</p>
+            <p id="continent-name">{{ this.flag.continent }}</p>
         </span>
         <span id="capital-span" v-if="guessNumber >= 3">
             <p>Capital:</p> 
-            <p>{{ this.$store.state.flag.capital }}</p>
+            <p>{{ this.flag.capital }}</p>
         </span>
         <span id="code-span" v-if="guessNumber >=4">
             <p>Country Code:</p>
-            <p>{{ this.$store.state.flag.code }}</p>
+            <p>{{ this.flag.code }}</p>
         </span>
     </div>
 </template>
 
 <script>
 export default {
-    props: ["guessNumber"]
+    props: ["guessNumber", "flag"]
 }
 </script>
 
