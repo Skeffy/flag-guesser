@@ -1,7 +1,7 @@
 <template>
     <div id="practice-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer @betweenFlags="updateIsBetween" @isCorrect="updateIsCorrect" :gameMode="gameMode" v-if="!isBetween"/>
+        <gameContainer @betweenFlags="updateIsBetween" @isCorrect="updateIsCorrect" :gameMode="gameMode" :flag="this.$store.state.practice" v-if="!isBetween"/>
         <intermission @nextFlag="updateIsBetween" :isCorrect="isCorrect" v-if="isBetween"/>
     </div>
 </template>
@@ -29,7 +29,7 @@ export default {
   
     created() {
         FlagService.getPractice().then( (response) => {
-            this.$store.commit("SET_FLAG", response.data);
+            this.$store.commit("SET_PRACTICE", response.data);
         });
     },
 
