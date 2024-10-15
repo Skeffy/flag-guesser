@@ -1,6 +1,6 @@
 <template>
     <div id="flag">
-        <img :src="this.$store.state.flag.flagImage" alt="">
+        <img :src="flag.flagImage" alt="">
     </div>
     <form v-on:submit.prevent="onSubmit" id="country-guess" v-if="!this.$store.state.stats.hasPlayed || this.gameMode != 'Daily'">
         <input type="text" list="country-names" id="country" v-model="this.playerGuess" placeholder="Select One">
@@ -9,7 +9,7 @@
         </datalist>
         <button @click="guess" class="gamebtn">Guess</button>
     </form>
-    <HintBox :guessNumber="guessNumber"/>
+    <HintBox :guessNumber="guessNumber" :flag="this.flag"/>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
         HintBox,
     },
 
-    props: ["gameMode"],
+    props: ["gameMode", "flag"],
 
     data() {
         return {
@@ -39,7 +39,7 @@ export default {
 
     methods: {
         guess() {
-            if (this.playerGuess.toLowerCase() === this.$store.state.flag.name.toLowerCase()) {
+            if (this.playerGuess.toLowerCase() === this.flag.name.toLowerCase()) {
                 //WIN
                 this.gameOver = true;
                 this.hasWon = true;
