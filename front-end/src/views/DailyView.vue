@@ -12,12 +12,23 @@
 <script>
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
+import FlagService from "../services/FlagService.js";
 
 export default {
     data() {
         return {
             gameMode: "Daily",
         }
+    },
+
+    created() {
+        FlagService.getDaily().then( (response) => {
+            this.$store.commit("SET_DAILY", response.data);
+      
+            if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
+                this.$store.commit("NEW_GAME");
+            }
+        });
     },
 
     components: {
