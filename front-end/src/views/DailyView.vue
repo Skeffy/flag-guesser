@@ -1,7 +1,7 @@
 <template>
     <div id="daily-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer :gameMode="gameMode" :flag="this.$store.state.daily"/>
+        <gameContainer :gameMode="gameMode" :flag="this.$store.state.daily" v-if="isLoaded"/>
         <div v-if="this.$store.state.stats.hasPlayed" id="completed">
             <h2>You've already completed todays challenge.</h2>
             <h2>Today's flag was {{ this.$store.state.daily.name }}</h2>
@@ -18,6 +18,7 @@ export default {
     data() {
         return {
             gameMode: "Daily",
+            isLoaded: false
         }
     },
 
@@ -28,6 +29,7 @@ export default {
             if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
                 this.$store.commit("NEW_GAME");
             }
+            this.isLoaded = true;
         });
     },
 
