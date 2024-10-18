@@ -1,6 +1,6 @@
 START TRANSACTION;
 
-INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Afghanistan','AF','Kabul','Asia','https://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Afghanistan.svg');
+INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Afghanistan','AF','Kabul','Asia','https://upload.wikimedia.org/wikipedia/commons/c/cd/Flag_of_Afghanistan_%282013%E2%80%932021%29.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Albania','AL','Tirana','Europe','https://upload.wikimedia.org/wikipedia/commons/3/36/Flag_of_Albania.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Algeria','DZ','Algiers','Africa','https://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg');
 INSERT INTO country (name, code, capital, continent, flag_image) VALUES ('Andorra','AD','Andorra la Vella','Europe','https://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Andorra.svg');
