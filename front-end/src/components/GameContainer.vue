@@ -16,11 +16,11 @@
 import HintBox from './HintBox.vue';
 
 export default {
+    props: ["gameMode", "flag"],
+    emits: ["betweenFlags", "isCorrect", "updateStats"],
     components: {
         HintBox,
     },
-
-    props: ["gameMode", "flag"],
 
     data() {
         return {
