@@ -3,10 +3,10 @@
         <div id="flag">
             <img :src="this.$store.state.practice.flagImage" alt="">
         </div>
-        <div id="correct" v-if="isCorrect">
+        <div id="correct" v-if="hasWon">
             <h2>{{ this.$store.state.practice.name }} is correct!</h2>
         </div>
-        <div id="incorrect" v-if="!isCorrect">
+        <div id="incorrect" v-if="!hasWon">
             <h2>Sorry! The correct answer was {{ this.$store.state.practice.name }}</h2>
         </div>
         <button @click="nextFlag" class="gamebtn">Next Flag</button>
@@ -17,7 +17,7 @@
 import FlagService from '../services/FlagService.js';
 
 export default {
-    props: ["isCorrect"],
+    props: ["hasWon"],
 
     methods: {
         nextFlag() {
