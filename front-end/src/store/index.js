@@ -33,7 +33,6 @@ export function createStore(currentStats) {
                 currentStreak: 0,
                 maxStreak: 0,
                 hasPlayed: false,
-                currentGuessNumber: 1,
                 timestamp: 0
             },
         },
@@ -61,12 +60,7 @@ export function createStore(currentStats) {
             },
             NEW_GAME(state) {
                 state.stats.hasPlayed = false;
-                state.stats.currentGuessNumber = 1;
             },
-            STORE_CURRENT_PROGRESS(state, payload) {
-                state.stats.currentGuessNumber = payload;
-                localStorage.setItem("stats", JSON.stringify(state.stats));
-            }
         }
     });
 }
