@@ -1,8 +1,8 @@
 <template>
     <div id="practice-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer @betweenFlags="updateIsBetween" @isCorrect="updateIsCorrect" :gameMode="gameMode" :flag="this.$store.state.practice" v-if="!isBetween"/>
-        <intermission @nextFlag="updateIsBetween" :isCorrect="isCorrect" v-if="isBetween"/>
+        <gameContainer @gameOver="gameOver" :gameMode="gameMode" :flag="this.$store.state.practice" v-if="!isBetween"/>
+        <intermission @nextFlag="resetIsBetween" :hasWon="hasWon" v-if="isBetween"/>
     </div>
 </template>
   
@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             gameMode: "Practice",
-            isCorrect: false,
+            hasWon: false,
             isBetween: false
         }
     },
@@ -34,13 +34,14 @@ export default {
     },
 
     methods: {
-        updateIsBetween(isBetween) {
+        resetIsBetween(isBetween) {
             this.isBetween = isBetween;
         },
 
-        updateIsCorrect(isCorrect) {
-            this.isCorrect = isCorrect;
-        }
+        gameOver(hasWon) {
+            this.isBetween = true;
+            this.hasWon = hasWon;
+        },
     }
 }
 </script>
