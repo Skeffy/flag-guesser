@@ -17,7 +17,7 @@ import HintBox from './HintBox.vue';
 
 export default {
     props: ["gameMode", "flag"],
-    emits: ["betweenFlags", "isCorrect", "updateStats"],
+    emits: ["betweenFlags", "isCorrect", "gameOver"],
     components: {
         HintBox,
     },
@@ -31,38 +31,32 @@ export default {
         }
     },
 
-    created() {
-        if (this.gameMode === "Daily") {
-            this.guessNumber = this.$store.state.stats.currentGuessNumber;
-        }
-    },
-
     methods: {
         guess() {
             if (this.playerGuess.toLowerCase() === this.flag.name.toLowerCase()) {
                 //WIN
                 this.gameOver = true;
                 this.hasWon = true;
+                this.$emit('gameOver', this.hasWon, this.guessNumber);
             } else {
                 this.guessNumber++;
                 if (this.guessNumber >= 5) {
                     //LOSE
                     this.gameOver = true;
+                    this.$emit('gameOver', this.hasWon);
                 }
             }
-            if (this.gameMode == "Daily"){
-                this.$store.commit("STORE_CURRENT_PROGRESS", this.guessNumber);
-            }
+            this.playerGuess = "";
+            /*
             if (this.gameOver == true && this.gameMode == "Practice") {
                 this.guessNumber = 1;
                 this.gameOver = false;
                 this.$emit('betweenFlags', true);
                 this.$emit('isCorrect', this.hasWon);
                 this.hasWon = false;
-            } else if (this.gameOver == true && this.gameMode === "Daily") {
-                this.$emit('updateStats');
             }
-            this.playerGuess = "";
+            
+            */
         },
     },
 }
