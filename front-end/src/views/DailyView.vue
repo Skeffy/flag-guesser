@@ -1,10 +1,13 @@
 <template>
     <div id="daily-view">
         <pageHeader :gameMode="gameMode" />
-        <gameContainer @gameOver="gameOver" :gameMode="gameMode" :flag="this.$store.state.daily" v-if="isLoaded"/>
-        <div v-if="this.$store.state.stats.hasPlayed" id="completed">
-            <h2>You've already completed todays challenge.</h2>
-            <h2>Today's flag was {{ this.$store.state.daily.name }}</h2>
+        <font-awesome-icon :icon="['fas', 'spinner']" spin size="10x" id="loading-spinner" v-if="!isLoaded"/>
+        <div v-if="isLoaded">
+            <gameContainer @gameOver="gameOver" :gameMode="gameMode" :flag="this.$store.state.daily"/>
+            <div v-if="this.$store.state.stats.hasPlayed" id="completed">
+                <h2>You've already completed todays challenge.</h2>
+                <h2>Today's flag was {{ this.$store.state.daily.name }}</h2>
+            </div>
         </div>
     </div>
 </template>
@@ -72,5 +75,11 @@ export default {
     margin-left: auto;
     margin-right: auto;
     justify-items: center;
+}
+
+#loading-spinner {
+    display: flex;
+    justify-self: center;
+    margin-top: 125px;
 }
 </style>
