@@ -28,7 +28,8 @@ export function createStore(currentStats) {
                     2: 0,
                     3: 0,
                     4: 0,
-                    fail: 0
+                    Fail: 0
+                    //capitalized to prevent weird behavior with chart.js
                 },
                 currentStreak: 0,
                 maxStreak: 0,
