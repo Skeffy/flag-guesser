@@ -21,12 +21,13 @@ export default {
     data() {
         return {
             gameMode: "Daily",
-            isLoaded: false
+            isLoaded: true
         }
     },
 
     created() {
         FlagService.getDaily().then( (response) => {
+            this.isLoaded = false;
             this.$store.commit("SET_DAILY", response.data);
       
             if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
