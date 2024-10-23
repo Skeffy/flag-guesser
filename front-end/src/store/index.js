@@ -1,16 +1,9 @@
 import { createStore as _createStore } from 'vuex';
 
-export function createStore(currentStats, countryData) {
+export function createStore(currentStats, countryData, daily) {
     return _createStore({
         state: {
-            daily: {
-                name: "",
-                code: "",
-                capital: "",
-                continent: "",
-                flagImage: "",
-                timestamp: 0,
-            },
+            daily: daily,
             practice: {
                 name: "",
                 code: "",
