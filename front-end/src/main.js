@@ -19,8 +19,9 @@ axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 let currentStats = JSON.parse(localStorage.getItem("stats"));
 let countryData = FlagService.getList();
+let daily = FlagService.getDaily();
 
-const store = createStore(currentStats, countryData);
+const store = createStore(currentStats, countryData, daily);
 const app = createApp(App)
 
 app.use(store);
