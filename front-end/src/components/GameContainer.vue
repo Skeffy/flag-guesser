@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import HintBox from './HintBox.vue';
+import HintBox from "./HintBox.vue";
 
 export default {
     props: ["gameMode", "flag"],
@@ -37,13 +37,13 @@ export default {
                 //WIN
                 this.gameOver = true;
                 this.hasWon = true;
-                this.$emit('gameOver', this.hasWon, this.guessNumber);
+                this.$emit("gameOver", this.hasWon, this.guessNumber);
             } else {
                 this.guessNumber++;
                 if (this.guessNumber >= 5) {
                     //LOSE
                     this.gameOver = true;
-                    this.$emit('gameOver', this.hasWon);
+                    this.$emit("gameOver", this.hasWon);
                 }
             }
             this.playerGuess = "";

@@ -15,7 +15,7 @@
 </template>
 
 <script >
-import FlagService from './services/FlagService';
+import FlagService from "./services/FlagService";
 
 export default {
   created() {

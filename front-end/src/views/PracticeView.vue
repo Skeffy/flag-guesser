@@ -7,7 +7,7 @@
 </template>
   
 <script>
-import FlagService from "@/services/FlagService";
+import FlagService from "../services/FlagService";
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
 import intermission from "../components/Intermission.vue";

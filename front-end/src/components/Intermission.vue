@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import FlagService from '../services/FlagService.js';
+import FlagService from "../services/FlagService.js";
 
 export default {
     props: ["hasWon"],
@@ -24,7 +24,7 @@ export default {
             FlagService.getPractice().then( (response) => {
                     this.$store.commit("SET_PRACTICE", response.data);
                 });
-            this.$emit('nextFlag', false);
+            this.$emit("nextFlag", false);
         }
     }
 }

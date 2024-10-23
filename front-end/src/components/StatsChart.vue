@@ -9,22 +9,22 @@
 </template>
 
 <script>
-import { Bar } from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
+import { Bar } from "vue-chartjs"
+import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from "chart.js"
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
 export default {
-  name: 'BarChart',
+  name: "BarChart",
   components: { Bar },
   data() {
     return {
       playerStats: {
-        labels: [ '1', '2', '3', '4', 'Fail' ],
+        labels: [ "1", "2", "3", "4", "Fail" ],
         datasets: [ { 
-            label: 'Number of Guesses',
+            label: "Number of Guesses",
             data: this.$store.state.stats.guesses,
-            backgroundColor: '#d7263d',
+            backgroundColor: "#d7263d",
             color: 'black' } ]
       },
       chartOptions: {
