@@ -19,7 +19,6 @@ import FlagService from "./services/FlagService";
 
 export default {
   created() {
-    this.$store.commit("SYNC_STATS");
     FlagService.getList().then( (response) => {
       this.$store.commit("POPULATE_LIST", response.data);
     });
