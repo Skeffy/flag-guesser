@@ -15,15 +15,7 @@
 </template>
 
 <script >
-import FlagService from "./services/FlagService";
 
-export default {
-  created() {
-    FlagService.getList().then( (response) => {
-      this.$store.commit("POPULATE_LIST", response.data);
-    });
-  }
-}
 </script>
 
 <style>
