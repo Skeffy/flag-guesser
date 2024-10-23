@@ -15,7 +15,6 @@
 <script>
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
-import FlagService from "../services/FlagService.js";
 
 export default {
     data() {
@@ -26,15 +25,9 @@ export default {
     },
 
     created() {
-        FlagService.getDaily().then( (response) => {
-            this.isLoaded = false;
-            this.$store.commit("SET_DAILY", response.data);
-      
-            if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
+        if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
                 this.$store.commit("NEW_GAME");
             }
-            this.isLoaded = true;
-        });
     },
 
     components: {
