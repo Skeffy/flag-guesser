@@ -48,13 +48,6 @@ export function createStore(currentStats) {
             POPULATE_LIST(state, payload) {
                 state.countryNames = payload;
             },
-            SYNC_STATS(state) {
-                if (localStorage.getItem("stats") != null) {
-                    state.stats = JSON.parse(localStorage.getItem("stats"));
-                } else {
-                    localStorage.setItem("stats", JSON.stringify(state.stats));
-                }
-            },
             UPDATE_STATS(state, payload) {
                 state.stats = payload;
                 localStorage.setItem("stats", JSON.stringify(state.stats));
