@@ -21,15 +21,20 @@ export default {
     return {
       playerStats: {
         labels: [ "1", "2", "3", "4", "Fail" ],
+        color: "#000000",
         datasets: [ { 
             label: "Number of Guesses",
             data: this.$store.state.stats.guesses,
             backgroundColor: "#d7263d",
-            color: 'black' } ]
+          }]
+      },
+      grid: {
+        color: "white",
       },
       chartOptions: {
         responsive: true,
         animation: true,
+        maintainAspectRatio: true,
       }
     }
   }
@@ -39,9 +44,10 @@ export default {
 <style>
 #stat-chart {
     width: 80vw;
+    aspect-ratio: 2 / 1;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
-    background-color: #41446c;
+    background-color: #f3f4f7;
 }
 </style>
