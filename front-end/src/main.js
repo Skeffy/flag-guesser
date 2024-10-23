@@ -16,8 +16,11 @@ library.add(faSpinner);
 axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 let currentStats = JSON.parse(localStorage.getItem("stats"));
+let countryData = FlagService.getList().then( (response) => {
+    this.$store.commit("POPULATE_LIST", response.data);
+  });
 
-const store = createStore(currentStats);
+const store = createStore(currentStats, countryData);
 const app = createApp(App)
 
 app.use(store);
