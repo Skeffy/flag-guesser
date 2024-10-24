@@ -15,7 +15,36 @@
 </template>
 
 <script >
+import { computed } from "vue"
+import FlagService from './services/FlagService';
 
+export default {
+  data() {
+    return {
+      isLoaded: false
+    }
+  },
+
+  provide() {
+    return {
+      isLoaded: computed(() => this.isLoaded)
+    }
+  },
+
+  created() {
+    FlagService.getList().then( (response) => {
+      this.$store.commit("POPULATE_LIST", response.data);
+    });
+    FlagService.getDaily().then( (response) => {
+      this.$store.commit("SET_DAILY", response.data);
+
+      if(this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
+        this.$store.commit("NEW_GAME");
+      }
+      this.isLoaded = true;
+    });
+  },
+}
 </script>
 
 <style>
