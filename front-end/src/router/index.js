@@ -11,7 +11,8 @@ const router = createRouter({
     {
       path: "/daily",
       name: "daily",
-      component: DailyView
+      component: DailyView,
+      props: true
     },
 
     {
