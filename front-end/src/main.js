@@ -11,17 +11,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
-import FlagService from './services/FlagService'
-
 library.add(faSpinner);
 
 axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 let currentStats = JSON.parse(localStorage.getItem("stats"));
-let countryData = FlagService.getList();
-let daily = FlagService.getDaily();
 
-const store = createStore(currentStats, countryData, daily);
+const store = createStore(currentStats);
 const app = createApp(App)
 
 app.use(store);
