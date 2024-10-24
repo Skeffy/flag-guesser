@@ -1,9 +1,16 @@
 import { createStore as _createStore } from 'vuex';
 
-export function createStore(currentStats, countryData, daily) {
+export function createStore(currentStats) {
     return _createStore({
         state: {
-            daily: daily,
+            daily: {
+                name: "",
+                code: "",
+                capital: "",
+                continent: "",
+                flagImage: "",
+                timestamp: 0,
+            },
             practice: {
                 name: "",
                 code: "",
@@ -12,7 +19,7 @@ export function createStore(currentStats, countryData, daily) {
                 flagImage: "",
                 timestamp: 0,
             },
-            countryNames: countryData,
+            countryNames: [],
             stats: currentStats || {
                 gamesPlayed: 0,
                 gamesWon: 0,
