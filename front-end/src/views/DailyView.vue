@@ -20,15 +20,10 @@ export default {
     data() {
         return {
             gameMode: "Daily",
-            isLoaded: true
         }
     },
-
-    created() {
-        if (this.$store.state.daily.timestamp > this.$store.state.stats.timestamp) {
-                this.$store.commit("NEW_GAME");
-            }
-    },
+    
+    inject: ["isLoaded"],
 
     components: {
         pageHeader,
