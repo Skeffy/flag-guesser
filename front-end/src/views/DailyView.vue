@@ -60,7 +60,7 @@ export default {
 <style>
 #completed {
     display: grid;
-    margin-top: 25px;
+    margin-top: 75px;
     margin-left: auto;
     margin-right: auto;
     justify-items: center;

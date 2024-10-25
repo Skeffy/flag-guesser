@@ -51,6 +51,7 @@ export default {
 #flag-guesser-app {
   display: grid;
   justify-content: center;
+  margin-top: 50px;
 }
 
 #heading {

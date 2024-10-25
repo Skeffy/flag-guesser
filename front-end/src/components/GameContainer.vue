@@ -38,6 +38,7 @@ export default {
                 this.gameOver = true;
                 this.hasWon = true;
                 this.$emit("gameOver", this.hasWon, this.guessNumber);
+                this.guessNumber = 1
             } else {
                 this.guessNumber++;
                 if (this.guessNumber >= 5) {
@@ -64,7 +65,7 @@ img {
 }
 
 #country-guess {
-    padding-top: 40px;
+    padding-top: 75px;
     display: grid;
     justify-content: center;
 }
@@ -72,7 +73,7 @@ img {
 #country-guess>input {
     width: 350px;
     height: 40px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     border-radius: 15px;
 }
 </style>

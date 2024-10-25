@@ -26,7 +26,7 @@ export default {
         border-bottom-style: solid;
         border-bottom-width: 3px;
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 75px;
         margin-left: auto;
         margin-right: auto;
     }
