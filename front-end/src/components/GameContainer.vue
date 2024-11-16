@@ -45,6 +45,7 @@ export default {
                     //LOSE
                     this.gameOver = true;
                     this.$emit("gameOver", this.hasWon);
+                    this.guessNumber = 1;
                 }
             }
             this.playerGuess = "";
