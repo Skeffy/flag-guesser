@@ -1,6 +1,8 @@
 package com.flagguesser.serverapp.model;
 
 public class Flag {
+
+    private int id;
     private String name;
     private String code;
     private String capital;
@@ -11,7 +13,8 @@ public class Flag {
     public Flag() {
     }
 
-    public Flag(String name, String code, String capital, String continent, String flagImage) {
+    public Flag(int id, String name, String code, String capital, String continent, String flagImage) {
+        this.id = id;
         this.name = name;
         this.code = code;
         this.capital = capital;
@@ -19,13 +22,23 @@ public class Flag {
         this.flagImage = flagImage;
     }
 
-    public Flag(String name, String code, String capital, String continent, String flagImage, long timestamp) {
+    public Flag(int id, String name, String code, String capital, String continent, String flagImage, long timestamp) {
+        this.id = id;
         this.name = name;
         this.code = code;
         this.capital = capital;
         this.continent = continent;
         this.flagImage = flagImage;
         this.timestamp = timestamp;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
