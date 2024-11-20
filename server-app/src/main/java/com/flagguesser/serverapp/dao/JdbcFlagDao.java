@@ -24,14 +24,14 @@ public class JdbcFlagDao implements FlagDao {
         String sql = "SELECT * FROM country WHERE country_id = ?;";
 
         try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, new Object[]{id});
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
             if (results.next()) {
                 flag = this.mapRowToFlag(results);
             }
 
             return flag;
-        } catch (CannotGetJdbcConnectionException var5) {
-            throw new DaoException("Unable to connect to database", var5);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to database", e);
         }
     }
 
@@ -42,8 +42,8 @@ public class JdbcFlagDao implements FlagDao {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
             results.last();
             return results.getRow();
-        } catch (CannotGetJdbcConnectionException var4) {
-            throw new DaoException("Unable to connect to database", var4);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to database", e);
         }
     }
 
@@ -56,14 +56,15 @@ public class JdbcFlagDao implements FlagDao {
             while (results.next()) {
                 namesList.add(results.getString("name"));
             }
-        } catch (CannotGetJdbcConnectionException var4) {
-            throw new DaoException("Unable to connect to database", var4);
+        } catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to database", e);
         }
         return namesList;
     }
 
     private Flag mapRowToFlag(SqlRowSet results) {
         Flag flag = new Flag();
+        flag.setId(results.getInt("country_id"));
         flag.setName(results.getString("name"));
         flag.setCode(results.getString("code"));
         flag.setCapital(results.getString("capital"));
