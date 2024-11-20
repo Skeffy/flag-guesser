@@ -1,6 +1,7 @@
-package io.github.skeffy.tellernet.dao;
+package com.flagguesser.serverapp.dao;
 
-import io.github.skeffy.tellernet.service.ProfileBuilder;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
@@ -8,8 +9,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import org.springframework.jdbc.datasource.init.ScriptUtils;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.Objects;
@@ -23,7 +22,7 @@ public class TestingDatabaseConfig {
     private static final String DB_PORT =
             Objects.requireNonNullElse(System.getenv("DB_PORT"), "5432");
     private static final String DB_NAME =
-            Objects.requireNonNullElse(System.getenv("DB_NAME"), "m2_final_project_test");
+            Objects.requireNonNullElse(System.getenv("DB_NAME"), "flag_guesser_db_test");
     private static final String DB_USERNAME =
             Objects.requireNonNullElse(System.getenv("DB_USERNAME"), "postgres");
     private static final String DB_PASSWORD =
@@ -63,14 +62,6 @@ public class TestingDatabaseConfig {
 
         ds = dataSource;
         return ds;
-    }
-
-    @Bean
-    public ProfileBuilder profileBuilder() {
-        AccountDao accountDao = new JdbcAccountDao(adminJdbcTemplate);
-        CustomerDao customerDao = new JdbcCustomerDao(adminJdbcTemplate);
-        TransactionDao transactionDao = new JdbcTransactionDao(adminJdbcTemplate);
-        return new ProfileBuilder(accountDao, customerDao, transactionDao);
     }
 
     @PreDestroy
