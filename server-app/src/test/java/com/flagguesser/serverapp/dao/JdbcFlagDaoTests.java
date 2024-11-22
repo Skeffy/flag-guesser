@@ -27,6 +27,15 @@ public class JdbcFlagDaoTests extends BaseDaoTests {
         assertFlagsMatch(FLAG_1, flag);
     }
 
+    @Test
+    public void dbLength_returns_number_of_rows_in_country_table() {
+        int dbLength = dao.dbLength();
+
+        Assert.assertEquals(197, dbLength);
+    }
+
+
+
     private void assertFlagsMatch(Flag expected, Flag actual) {
         Assert.assertEquals(expected.getId(), actual.getId());
         Assert.assertEquals(expected.getName(), actual.getName());
