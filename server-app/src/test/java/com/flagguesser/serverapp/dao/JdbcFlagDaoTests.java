@@ -28,6 +28,13 @@ public class JdbcFlagDaoTests extends BaseDaoTests {
     }
 
     @Test
+    public void getFlag_returns_null_when_given_bad_id() {
+        Flag flag = dao.getFlag(500);
+
+        Assert.assertNull(flag);
+    }
+
+    @Test
     public void dbLength_returns_number_of_rows_in_country_table() {
         int dbLength = dao.dbLength();
 
