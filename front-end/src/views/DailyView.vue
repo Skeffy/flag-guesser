@@ -1,5 +1,6 @@
 <template>
     <div id="daily-view">
+        <gameOver />
         <pageHeader :gameMode="gameMode" />
         <font-awesome-icon :icon="['fas', 'spinner']" spin size="10x" id="loading-spinner" v-if="!isLoaded"/>
         <div v-if="isLoaded">
@@ -15,6 +16,7 @@
 <script>
 import pageHeader from "../components/PageHeader.vue";
 import gameContainer from "../components/GameContainer.vue";
+import gameOver from "../components/GameOver.vue";
 
 export default {
     data() {
@@ -28,6 +30,7 @@ export default {
     components: {
         pageHeader,
         gameContainer,
+        gameOver,
     },
 
     methods: {
@@ -35,6 +38,7 @@ export default {
             var stats = this.$store.state.stats;
             stats.gamesPlayed++;
             stats.hasPlayed = true;
+            this.$bvModal.show("#gam-over");
             if (hasWon) {
                 stats.gamesWon++;
                 stats.currentStreak++;
