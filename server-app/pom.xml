@@ -12,7 +12,7 @@
 	<artifactId>server-app</artifactId>
 	<version>1.0.0</version>
 	<name>Flag Guesser Server</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Server application for Flag-Guesser</description>
 	<properties>
 		<java.version>22</java.version>
 	</properties>
