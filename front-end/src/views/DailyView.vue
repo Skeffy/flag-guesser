@@ -33,13 +33,13 @@ export default {
     methods: {
         gameOver(hasWon, guessNumber) {
             var stats = this.$store.state.stats;
-            stats.gamesPlayed++;
+            stats.trackers.played.value++;
             stats.hasPlayed = true;
             if (hasWon) {
-                stats.gamesWon++;
-                stats.currentStreak++;
-                if (stats.currentStreak > stats.maxStreak) {
-                    stats.maxStreak = stats.currentStreak;
+                stats.trackers.won.value++;
+                stats.trackers.currentStreak.value++;
+                if (stats.trackers.currentStreak.value > stats.trackers.maxStreak.value) {
+                    stats.trackers.maxStreak.value = stats.trackers.currentStreak.value;
                 }
                 for (var key in stats.guesses) {
                     if (key == guessNumber) {
@@ -48,7 +48,7 @@ export default {
                 }
             } else {
                 stats.guesses.fail++;
-                stats.currentStreak = 0;
+                stats.trackers.currentStreak.value = 0;
             }
             stats.timestamp = Math.floor(Date.now() / 1000);
             this.$store.commit("UPDATE_STATS", stats);
