@@ -20,7 +20,7 @@ export default {
   data() {
     return {
       playerStats: {
-        labels: [ "1", "2", "3", "4", "Fail" ],
+        labels: [ "1", "2", "3", "4", "Fail"],
         color: "#000000",
         datasets: [ { 
             label: "Number of Guesses",
