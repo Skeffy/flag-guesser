@@ -21,8 +21,24 @@ export function createStore(currentStats) {
             },
             countryNames: [],
             stats: currentStats || {
-                gamesPlayed: 0,
-                gamesWon: 0,
+                trackers: {
+                    played: {
+                        name: "Games Played",
+                        value: 0
+                    },
+                    won: {
+                        name: "Games Won",
+                        value: 0
+                    },
+                    currentStreak: {
+                        name: "Current Streak",
+                        value: 0
+                    },
+                    maxStreak: {
+                        name: "Max Streak",
+                        value: 0
+                    },
+                },
                 guesses: {
                     1: 0,
                     2: 0,
@@ -31,8 +47,6 @@ export function createStore(currentStats) {
                     Fail: 0
                     //capitalized to prevent weird behavior with chart.js
                 },
-                currentStreak: 0,
-                maxStreak: 0,
                 hasPlayed: false,
                 timestamp: 0
             },
