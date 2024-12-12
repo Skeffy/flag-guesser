@@ -11,7 +11,7 @@
     }
 </script>
 
-<style>
+<style scoped>
     .stat {
         display: flex;
         flex-direction: column;
@@ -19,6 +19,7 @@
         height: 100px;
         color: black;
         background-color: #f3f4f7;
+        align-items: center;
         justify-content: center;
         border-radius: 10px;
         border: 3px solid #d7263d;
