@@ -89,7 +89,7 @@ export default {
 #stats {
   grid-area: stats;
   display: flex;
-  justify-content: right;
+  justify-self: right;
   padding-right: 20px;
 }
 
