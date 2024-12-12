@@ -35,6 +35,7 @@ export default {
             var stats = this.$store.state.stats;
             stats.trackers.played.value++;
             stats.hasPlayed = true;
+            this.$bvModal.show("#gam-over");
             if (hasWon) {
                 stats.trackers.won.value++;
                 stats.trackers.currentStreak.value++;
